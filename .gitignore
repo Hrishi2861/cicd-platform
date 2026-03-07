@@ -1,0 +1,76 @@
+# Dependencies
+node_modules/
+vendor/
+*.egg-info/
+__pycache__/
+.venv/
+
+# Build artifacts
+dist/
+build/
+*.o
+*.class
+
+# Go
+go.sum
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+*.tfvars
+!*.tfvars.example
+
+# Environment & Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.sock
+docker-compose.override.yml
+
+# Helm
+charts/*/charts/
+charts/*.tgz
+
+# Kustomize
+overlays/**/kustomization.yaml.bak
+
+# Logs
+*.log
+logs/
+
+# Kubernetes
+kubeconfig
+kubeconfig.yaml
+*.kubeconfig
+
+# Local data
+data/
+tmp/
+
+# ArgoCD local config
+.argocd/
