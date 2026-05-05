@@ -1,0 +1,56 @@
+replicaCount: 2
+
+image:
+  repository: order-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 8082
+  targetPort: 8082
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+env:
+  - name: DB_HOST
+    valueFrom:
+      secretKeyRef:
+        name: db-credentials
+        key: host
+  - name: DB_PORT
+    value: "5432"
+  - name: DB_NAME
+    value: "orders"
+  - name: DB_USER
+    valueFrom:
+      secretKeyRef:
+        name: db-credentials
+        key: username
+  - name: DB_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: db-credentials
+        key: password
+  - name: USER_SERVICE_URL
+    value: "http://user-service:8081"
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+serviceAccount:
+  create: true
+  name: ""
+
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8082"
