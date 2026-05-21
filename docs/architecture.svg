@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 880" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="dev-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a472a"/>
+      <stop offset="100%" style="stop-color:#1f3a2a"/>
+    </linearGradient>
+    <linearGradient id="ci-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c2333"/>
+      <stop offset="100%" style="stop-color:#1f2940"/>
+    </linearGradient>
+    <linearGradient id="gitops-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2744"/>
+      <stop offset="100%" style="stop-color:#1f3050"/>
+    </linearGradient>
+    <linearGradient id="k8s-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1f4d"/>
+      <stop offset="100%" style="stop-color:#352560"/>
+    </linearGradient>
+    <linearGradient id="svc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a2a5c"/>
+      <stop offset="100%" style="stop-color:#423066"/>
+    </linearGradient>
+    <linearGradient id="db-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a4a7a"/>
+      <stop offset="100%" style="stop-color:#305590"/>
+    </linearGradient>
+    <linearGradient id="mon-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a2a1a"/>
+      <stop offset="100%" style="stop-color:#553320"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#58a6ff"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="880" fill="url(#bg)" rx="12"/>
+
+  <text x="600" y="40" text-anchor="middle" fill="#58a6ff" font-size="28" font-weight="bold">Cloud-Native CI/CD Platform Architecture</text>
+
+  <!-- Developer -->
+  <rect x="50" y="70" width="200" height="90" rx="8" fill="url(#dev-grad)" stroke="#3fb950" stroke-width="2"/>
+  <text x="150" y="105" text-anchor="middle" fill="#3fb950" font-size="16" font-weight="bold">Developer</text>
+  <text x="150" y="125" text-anchor="middle" fill="#8b949e" font-size="12">Git Push / Pull Request</text>
+  <text x="150" y="145" text-anchor="middle" fill="#8b949e" font-size="12">Code Changes</text>
+
+  <!-- Arrow to CI -->
+  <line x1="250" y1="115" x2="320" y2="115" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="285" y="105" text-anchor="middle" fill="#58a6ff" font-size="11">triggers</text>
+
+  <!-- GitHub Actions -->
+  <rect x="320" y="70" width="280" height="90" rx="8" fill="url(#ci-grad)" stroke="#58a6ff" stroke-width="2"/>
+  <text x="460" y="105" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold">GitHub Actions</text>
+  <text x="460" y="125" text-anchor="middle" fill="#8b949e" font-size="12">Test | Lint | Security Scan</text>
+  <text x="460" y="145" text-anchor="middle" fill="#8b949e" font-size="12">Build | Push | Deploy</text>
+
+  <!-- Arrow to ArgoCD -->
+  <line x1="460" y1="160" x2="460" y2="220" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="480" y="195" fill="#58a6ff" font-size="11">merge to main</text>
+
+  <!-- ArgoCD -->
+  <rect x="320" y="220" width="280" height="90" rx="8" fill="url(#gitops-grad)" stroke="#58a6ff" stroke-width="2"/>
+  <text x="460" y="255" text-anchor="middle" fill="#58a6ff" font-size="16" font-weight="bold">ArgoCD (GitOps)</text>
+  <text x="460" y="275" text-anchor="middle" fill="#8b949e" font-size="12">Helm Charts + Kustomize</text>
+  <text x="460" y="295" text-anchor="middle" fill="#8b949e" font-size="12">Auto-Sync | Self-Heal</text>
+
+  <!-- Arrow to K8s -->
+  <line x1="460" y1="310" x2="460" y2="380" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="480" y="350" fill="#58a6ff" font-size="11">deploys</text>
+
+  <!-- Kubernetes Cluster -->
+  <rect x="280" y="380" width="640" height="280" rx="12" fill="url(#k8s-grad)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="600" y="410" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">Kubernetes Cluster (EKS)</text>
+
+  <!-- API Gateway -->
+  <rect x="310" y="435" width="170" height="70" rx="8" fill="url(#svc-grad)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="395" y="465" text-anchor="middle" fill="#e6e6e6" font-size="14" font-weight="bold">API Gateway</text>
+  <text x="395" y="485" text-anchor="middle" fill="#8b949e" font-size="12">x2-3 replicas</text>
+
+  <!-- User Service -->
+  <rect x="510" y="435" width="170" height="70" rx="8" fill="url(#svc-grad)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="595" y="465" text-anchor="middle" fill="#e6e6e6" font-size="14" font-weight="bold">User Service</text>
+  <text x="595" y="485" text-anchor="middle" fill="#8b949e" font-size="12">x2-3 replicas</text>
+
+  <!-- Order Service -->
+  <rect x="710" y="435" width="170" height="70" rx="8" fill="url(#svc-grad)" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="795" y="465" text-anchor="middle" fill="#e6e6e6" font-size="14" font-weight="bold">Order Service</text>
+  <text x="795" y="485" text-anchor="middle" fill="#8b949e" font-size="12">x2-3 replicas</text>
+
+  <!-- Connections between services -->
+  <line x1="480" y1="470" x2="510" y2="470" stroke="#8b5cf6" stroke-width="1.5"/>
+  <line x1="680" y1="470" x2="710" y2="470" stroke="#8b5cf6" stroke-width="1.5"/>
+
+  <!-- Arrows from services to DB -->
+  <line x1="395" y1="505" x2="395" y2="535" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="595" y1="505" x2="595" y2="535" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="795" y1="505" x2="795" y2="535" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- PostgreSQL -->
+  <rect x="360" y="535" width="470" height="65" rx="8" fill="url(#db-grad)" stroke="#4169e1" stroke-width="1.5"/>
+  <text x="595" y="565" text-anchor="middle" fill="#e6e6e6" font-size="16" font-weight="bold">PostgreSQL (RDS)</text>
+  <text x="595" y="585" text-anchor="middle" fill="#8b949e" font-size="12">Multi-AZ (Prod) | Encrypted at Rest</text>
+
+  <!-- ArgoCD to K8s dashed line -->
+  <path d="M 600 265 Q 700 265 750 350 Q 800 380 920 400" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="6,4" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Monitoring Section -->
+  <rect x="280" y="700" width="640" height="140" rx="12" fill="url(#mon-grad)" stroke="#f97316" stroke-width="2"/>
+  <text x="600" y="730" text-anchor="middle" fill="#f97316" font-size="18" font-weight="bold">Observability Stack</text>
+
+  <!-- Prometheus -->
+  <rect x="310" y="750" width="190" height="70" rx="8" fill="#4a2a1a" stroke="#f97316" stroke-width="1.5"/>
+  <text x="405" y="780" text-anchor="middle" fill="#e6e6e6" font-size="14" font-weight="bold">Prometheus</text>
+  <text x="405" y="800" text-anchor="middle" fill="#8b949e" font-size="12">Metrics &amp; Alert Rules</text>
+
+  <!-- Grafana -->
+  <rect x="510" y="750" width="190" height="70" rx="8" fill="#4a2a1a" stroke="#f97316" stroke-width="1.5"/>
+  <text x="605" y="780" text-anchor="middle" fill="#e6e6e6" font-size="14" font-weight="bold">Grafana</text>
+  <text x="605" y="800" text-anchor="middle" fill="#8b949e" font-size="12">Dashboards &amp; Visuals</text>
+
+  <!-- AlertManager -->
+  <rect x="710" y="750" width="190" height="70" rx="8" fill="#4a2a1a" stroke="#f97316" stroke-width="1.5"/>
+  <text x="805" y="780" text-anchor="middle" fill="#e6e6e6" font-size="14" font-weight="bold">AlertManager</text>
+  <text x="805" y="800" text-anchor="middle" fill="#8b949e" font-size="12">Slack / PagerDuty</text>
+
+  <!-- Arrows between monitoring -->
+  <line x1="500" y1="785" x2="510" y2="785" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="700" y1="785" x2="710" y2="785" stroke="#f97316" stroke-width="1.5"/>
+
+  <!-- K8s to Monitoring -->
+  <line x1="600" y1="660" x2="600" y2="700" stroke="#f97316" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="615" y="685" fill="#f97316" font-size="11">/metrics</text>
+
+  <!-- Side Panel -->
+  <rect x="50" y="200" width="190" height="150" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="145" y="230" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="bold">Key Features</text>
+  <text x="145" y="255" text-anchor="middle" fill="#8b949e" font-size="12">Auto-scaling (HPA)</text>
+  <text x="145" y="275" text-anchor="middle" fill="#8b949e" font-size="12">Multi-environment</text>
+  <text x="145" y="295" text-anchor="middle" fill="#8b949e" font-size="12">GitOps workflow</text>
+  <text x="145" y="315" text-anchor="middle" fill="#8b949e" font-size="12">Security scanning</text>
+  <text x="145" y="335" text-anchor="middle" fill="#8b949e" font-size="12">Health checks</text>
+</svg>
