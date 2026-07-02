@@ -113,9 +113,17 @@ agg docs/screenshots/demo.cast docs/screenshots/demo.gif
 Proof artifacts live in [`docs/screenshots/`](docs/screenshots/) — see that
 folder's README for exactly what to capture. Once added they render here:
 
-| Grafana Dashboard | ArgoCD Sync | GitHub Actions |
-|-------------------|-------------|----------------|
-| ![Grafana](docs/screenshots/grafana-dashboard.png) | ![ArgoCD](docs/screenshots/argocd-sync.png) | ![Actions](docs/screenshots/github-actions-run.png) |
+### Grafana Dashboard
+
+![Grafana](docs/screenshots/grafana-dashboard.png)
+
+### ArgoCD Sync
+
+![ArgoCD](docs/screenshots/argocd-sync.png)
+
+### GitHub Actions
+
+![Actions](docs/screenshots/github-actions-run.png)
 
 ---
 
