@@ -29,7 +29,7 @@ func (h *UserHandler) GetUsers(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	io.Copy(w, resp.Body)
+	_, _ = io.Copy(w, resp.Body)
 }
 
 func (h *UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
@@ -43,7 +43,7 @@ func (h *UserHandler) GetUser(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	io.Copy(w, resp.Body)
+	_, _ = io.Copy(w, resp.Body)
 }
 
 func (h *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
@@ -55,12 +55,12 @@ func (h *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	io.Copy(w, resp.Body)
+	_, _ = io.Copy(w, resp.Body)
 }
 
 func HealthCheck(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
+	_ = json.NewEncoder(w).Encode(map[string]string{
 		"status":  "healthy",
 		"service": "api-gateway",
 	})

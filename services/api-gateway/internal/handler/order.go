@@ -28,7 +28,7 @@ func (h *OrderHandler) GetOrders(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	io.Copy(w, resp.Body)
+	_, _ = io.Copy(w, resp.Body)
 }
 
 func (h *OrderHandler) GetOrder(w http.ResponseWriter, r *http.Request) {
@@ -42,7 +42,7 @@ func (h *OrderHandler) GetOrder(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	io.Copy(w, resp.Body)
+	_, _ = io.Copy(w, resp.Body)
 }
 
 func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
@@ -54,5 +54,5 @@ func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(resp.StatusCode)
-	io.Copy(w, resp.Body)
+	_, _ = io.Copy(w, resp.Body)
 }

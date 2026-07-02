@@ -38,3 +38,9 @@ deploy-apps: ## Deploy applications with ArgoCD
 
 destroy-infra: ## Destroy infrastructure
 	cd infra/terraform && terraform destroy -auto-approve
+
+screenshot-argocd: ## Spin up local kind + ArgoCD + api-gateway for a screenshot
+	./scripts/argocd-screenshot.sh
+
+screenshot-argocd-destroy: ## Tear down the kind cluster used for the screenshot
+	./scripts/argocd-screenshot.sh --destroy

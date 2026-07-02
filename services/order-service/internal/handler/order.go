@@ -48,7 +48,7 @@ func (h *OrderHandler) GetOrders(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(orders)
+	_ = json.NewEncoder(w).Encode(orders)
 }
 
 func (h *OrderHandler) HandleOrderByID(w http.ResponseWriter, r *http.Request) {
@@ -84,7 +84,7 @@ func (h *OrderHandler) GetOrder(w http.ResponseWriter, r *http.Request, id strin
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(o)
+	_ = json.NewEncoder(w).Encode(o)
 }
 
 func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
@@ -124,7 +124,7 @@ func (h *OrderHandler) CreateOrder(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(order)
+	_ = json.NewEncoder(w).Encode(order)
 }
 
 func (h *OrderHandler) UpdateOrder(w http.ResponseWriter, r *http.Request, id string) {
@@ -155,7 +155,7 @@ func (h *OrderHandler) UpdateOrder(w http.ResponseWriter, r *http.Request, id st
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(o)
+	_ = json.NewEncoder(w).Encode(o)
 }
 
 func (h *OrderHandler) DeleteOrder(w http.ResponseWriter, r *http.Request, id string) {
@@ -170,7 +170,7 @@ func (h *OrderHandler) DeleteOrder(w http.ResponseWriter, r *http.Request, id st
 
 func HealthCheck(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
+	_ = json.NewEncoder(w).Encode(map[string]string{
 		"status":  "healthy",
 		"service": "order-service",
 	})
