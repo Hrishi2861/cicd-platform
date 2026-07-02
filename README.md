@@ -369,9 +369,9 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 ## Environment Configuration
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Dev-1_replica_minimal-brightgreen?style=for-the-badge" alt="Dev"/>
-  <img src="https://img.shields.io/badge/Staging-2_replicas_standard-yellow?style=for-the-badge" alt="Staging"/>
-  <img src="https://img.shields.io/badge/Prod-3_replicas_high-Multi_AZ-red?style=for-the-badge" alt="Prod"/>
+  <img src="https://img.shields.io/static/v1?label=Dev&message=1+replica+minimal&color=brightgreen&style=for-the-badge" alt="Dev"/>
+  <img src="https://img.shields.io/static/v1?label=Staging&message=2+replicas+standard&color=yellow&style=for-the-badge" alt="Staging"/>
+  <img src="https://img.shields.io/static/v1?label=Prod&message=3+replicas+high+Multi-AZ&color=red&style=for-the-badge" alt="Prod"/>
 </p>
 
 | Environment | Replicas | Resources | Multi-AZ | Deploy Command |
