@@ -80,6 +80,53 @@ A complete **DevOps & Cloud Engineering** platform demonstrating enterprise-grad
 
 ---
 
+## Demo
+
+<!-- Drop the recording in once captured. -->
+<!-- ![Demo](docs/screenshots/demo.gif) -->
+
+> A short end-to-end demo — `argocd app sync` promoting a change, followed by a
+> walkthrough of the live Grafana dashboard — is the best way to show this
+> platform in motion.
+
+**How to record one:**
+
+```bash
+# Option A — asciinema (terminal only, lightweight)
+asciinema rec docs/screenshots/demo.cast
+#  ... run:  kubectl apply -f infra/argocd/applications.yaml
+#            argocd app sync api-gateway user-service order-service
+#            argocd app wait api-gateway --health
+#  Ctrl-D to stop, then convert to a GIF:
+agg docs/screenshots/demo.cast docs/screenshots/demo.gif
+
+# Option B — full-screen capture (to include the Grafana + ArgoCD UIs)
+#  Use a screen recorder, walk through:
+#    1. argocd app sync in the terminal
+#    2. the ArgoCD UI showing Synced / Healthy
+#    3. the Grafana Microservices dashboard with live traffic
+#  Export to docs/screenshots/demo.gif and uncomment the image tag above.
+```
+
+## Screenshots
+
+Proof artifacts live in [`docs/screenshots/`](docs/screenshots/) — see that
+folder's README for exactly what to capture. Once added they render here:
+
+### Grafana Dashboard
+
+![Grafana](docs/screenshots/grafana-dashboard.png)
+
+### ArgoCD Sync
+
+![ArgoCD](docs/screenshots/argocd-sync.png)
+
+### GitHub Actions
+
+![Actions](docs/screenshots/github-actions-run.png)
+
+---
+
 ## Tech Stack
 
 ### Core
@@ -322,9 +369,9 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 ## Environment Configuration
 
 <p align="center">
-  <img src="https://img.shields.io/badge/🟢_Dev-1_replica-minimal_resources-brightgreen?style=for-the-badge" alt="Dev"/>
-  <img src="https://img.shields.io/badge/🟡_Staging-2_replicas-standard_resources-yellow?style=for-the-badge" alt="Staging"/>
-  <img src="https://img.shields.io/badge/🔴_Prod-3_replicas-high_resources-Multi_AZ-red?style=for-the-badge" alt="Prod"/>
+  <img src="https://img.shields.io/static/v1?label=Dev&message=1+replica+minimal&color=brightgreen&style=for-the-badge" alt="Dev"/>
+  <img src="https://img.shields.io/static/v1?label=Staging&message=2+replicas+standard&color=yellow&style=for-the-badge" alt="Staging"/>
+  <img src="https://img.shields.io/static/v1?label=Prod&message=3+replicas+high+Multi-AZ&color=red&style=for-the-badge" alt="Prod"/>
 </p>
 
 | Environment | Replicas | Resources | Multi-AZ | Deploy Command |

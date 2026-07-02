@@ -45,7 +45,7 @@ func (h *UserHandler) GetUsers(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(users)
+	_ = json.NewEncoder(w).Encode(users)
 }
 
 func (h *UserHandler) HandleUserByID(w http.ResponseWriter, r *http.Request) {
@@ -81,7 +81,7 @@ func (h *UserHandler) GetUser(w http.ResponseWriter, r *http.Request, id string)
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(u)
+	_ = json.NewEncoder(w).Encode(u)
 }
 
 func (h *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
@@ -116,7 +116,7 @@ func (h *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(user)
+	_ = json.NewEncoder(w).Encode(user)
 }
 
 func (h *UserHandler) UpdateUser(w http.ResponseWriter, r *http.Request, id string) {
@@ -148,7 +148,7 @@ func (h *UserHandler) UpdateUser(w http.ResponseWriter, r *http.Request, id stri
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(u)
+	_ = json.NewEncoder(w).Encode(u)
 }
 
 func (h *UserHandler) DeleteUser(w http.ResponseWriter, r *http.Request, id string) {
@@ -163,7 +163,7 @@ func (h *UserHandler) DeleteUser(w http.ResponseWriter, r *http.Request, id stri
 
 func HealthCheck(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(map[string]string{
+	_ = json.NewEncoder(w).Encode(map[string]string{
 		"status":  "healthy",
 		"service": "user-service",
 	})

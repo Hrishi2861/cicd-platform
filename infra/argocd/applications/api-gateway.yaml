@@ -6,12 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    chart: api-gateway
-    repoURL: https://charts.example.com
-    targetRevision: 0.1.0
-    helm:
-      valueFiles:
-        - values.yaml
+    repoURL: https://github.com/Hrishi2861/cicd-platform.git
+    targetRevision: rebuild
+    path: charts/api-gateway
   destination:
     server: https://kubernetes.default.svc
     namespace: cicd-platform

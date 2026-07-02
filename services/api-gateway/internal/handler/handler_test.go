@@ -20,7 +20,7 @@ func TestHealthCheck(t *testing.T) {
 func TestUserHandler_GetUsers(t *testing.T) {
 	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte(`[{"id":"1","name":"test"}]`))
+		_, _ = w.Write([]byte(`[{"id":"1","name":"test"}]`))
 	}))
 	defer mockServer.Close()
 
@@ -39,7 +39,7 @@ func TestUserHandler_GetUsers(t *testing.T) {
 func TestOrderHandler_GetOrders(t *testing.T) {
 	mockServer := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
-		w.Write([]byte(`[{"id":"1","product":"test"}]`))
+		_, _ = w.Write([]byte(`[{"id":"1","product":"test"}]`))
 	}))
 	defer mockServer.Close()
 
